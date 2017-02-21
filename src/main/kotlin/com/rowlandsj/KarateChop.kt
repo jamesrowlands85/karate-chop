@@ -3,12 +3,7 @@ package com.rowlandsj
 class KarateChop {
 
     fun iterativeSearchChop(target: Int, array: IntArray): Int {
-        for((index, value) in array.withIndex()) {
-            if(value == target) {
-                return index
-            }
-        }
-        return -1
+        return array.indexOfFirst { it == target }
     }
 
     fun recursiveChop(target: Int, array: IntArray): Int {
