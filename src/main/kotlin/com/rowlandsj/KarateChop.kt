@@ -10,6 +10,27 @@ class KarateChop {
         return recursiveSearch(target, array, 0, array.lastIndex)
     }
 
+    fun binarySearchChop(target: Int, array: IntArray) : Int {
+        var low = 0
+        var high = array.lastIndex
+
+        while(low <= high) {
+            val mid = (high + low) / 2
+            val midValue = array[mid]
+
+            if(midValue < target) {
+                low = mid + 1
+            }
+            else if(midValue > target) {
+                high = mid - 1
+            }
+            else {
+                return mid
+            }
+        }
+        return -1
+    }
+
     private fun recursiveSearch(target: Int, array: IntArray, start: Int, end: Int): Int {
         if(end < start) {
             return -1
